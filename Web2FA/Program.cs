@@ -5,6 +5,7 @@ using Web2FA.Data;
 using Web2FA.Data.Utils;
 using Web2FA.Services.Email;
 using Web2FA.Services.ViewRender;
+using Microsoft.Extensions.Caching.StackExchangeRedis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<MyDbContext>(opt =>
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("Local")));
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
+
+//builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration["AZURE_REDIS_CONNECTIONSTRING"];
+    options.InstanceName = "SampleInstance";
+});
 
 // add Identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
