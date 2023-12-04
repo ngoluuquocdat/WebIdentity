@@ -1,0 +1,71 @@
+﻿@model Web2FA.Models.AccountViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<head>
+    <title>Web Identity</title>
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section"></h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="login-wrap p-0">
+                        <h3 class="mb-4 text-center" style="margin-bottom: 0.5rem!important;">Create your account</h3>
+                        <div class="login-navigation">
+                            <p class="w-100 text-center" style="margin-bottom: 1.5rem!important;">
+                                Already have one?
+                                <a asp-controller="Account" asp-action="Login">Sign in</a>
+                            </p>
+                        </div>
+                        <form asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input asp-for="Email" class="form-control" placeholder="Email" required/>
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input asp-for="Password" id="password-field" class="form-control" placeholder="Password" required />
+                                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input asp-for="ConfirmPassword" id="password-confirm-field" class="form-control" placeholder="Confirm password" required />
+                                    <span toggle="#password-confirm-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-wrap checkbox-primary">
+                                    Enable two-factor authentication
+                                    <input asp-for="TwoFactorAuthenticationEnabled" type="checkbox" checked="">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="form-control btn btn-primary submit px-3">Sign up</button>
+                            </div>
+                        </form>
+                    <p class="w-100 text-center">— Or Sign Up With —</p>
+                    <div class="social d-flex text-center">
+                        <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
+                        <a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

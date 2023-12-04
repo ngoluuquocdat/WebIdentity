@@ -1,0 +1,94 @@
+﻿.verify-code-container {
+    position: absolute;
+    display: block;
+    background: #fff;
+    min-height: 400px;
+    width: 360px;
+    border-radius: 3px;
+    margin: auto auto;
+    padding: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+    .verify-code-container h1 {
+        position: relative;
+        display: inline-block;
+        color: #000;
+        font-size: 2em;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 0 0 20px;
+        padding: 0;
+    }
+        .verify-code-container h1:after {
+            content: '';
+            display: block;
+            background: #000;
+            height: 3px;
+            width: 50%;
+            margin: 20px auto 0;
+            padding: 0;
+        }
+
+.verify-code-form {
+    display: block;
+
+}
+
+.verify-code-form__group {
+    margin: 10px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.verify-code-form__pincode {
+    display: flex;
+    width: 100%;
+    margin: 10px auto 20px;
+    padding: 0;
+}
+
+    .verify-code-form__pincode input {
+        display: inline-block;
+        width: 15%;
+        height: 50px;
+        line-height: 48px;
+        text-align: center;
+        font-size: 2em;
+        color: #181819;
+        border: 0;
+        border-bottom: 2px solid rgba(0,0,0,.3);
+        border-radius: 2px 2px 0 0;
+        transition: background-color .3s, color .3s, opacity .3s;
+        cursor: default ;
+        user-select: none;
+        margin: 0;
+        margin-top: 10px;
+        margin-right: 2%;
+        padding: 0;
+    }
+
+        .verify-code-form__pincode input:focus {
+            outline: 0;
+            box-shadow: none;
+            border-color: #1486f0;
+            animation: border-pulsate 1.5s infinite;
+            -webkit-tap-highlight-color: transparent;
+        }
+.verify-code-form__buttons {
+    display: flex;
+    justify-content: center;
+}
+    .verify-code-form__buttons .btn {
+        border-radius: 50px;
+        padding: 10px 40px;
+        width: 50%;
+        margin-top: 20px;
+    }
+/*clear-fix() {
+    &:before &:after display table content '' &:after clear both
+}*/

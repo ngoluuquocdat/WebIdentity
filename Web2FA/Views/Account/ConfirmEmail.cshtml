@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Confirm Email";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Confirmation Success</title>
+    <style>
+        .container {
+            text-align: center;
+            background-color: transparent;
+            padding: 20px;
+            padding-top: 100px;
+        }
+
+        .success-message {
+            color: #4caf50;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .login-link {
+            color: #f47934;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 300;
+            transition: 0.3s;
+        }
+
+        .note {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-message">Thank you for confirming your email!</div>
+        <div class="note">Please click <a asp-controller="Account" asp-action="Login" class="login-link">here</a> to log in.</div>
+    </div>
+</body>
+</html>
