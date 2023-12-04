@@ -75,6 +75,4 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Account}/{action=Login}");
 
-DatabaseInitiation.Execute(app);
-
 app.Run();
