@@ -13,11 +13,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<MyDbContext>(opt =>
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("Local")));
+
 
 //builder.Services.AddDistributedMemoryCache();
 
-builder.Services.AddStackExchangeRedisCache(options =>
+    builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = builder.Configuration["AZURE_REDIS_CONNECTIONSTRING"];
     options.InstanceName = "SampleInstance";
