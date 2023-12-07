@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<MyDbContext>(opt =>
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("Local")));
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
 
 
 //builder.Services.AddDistributedMemoryCache();
