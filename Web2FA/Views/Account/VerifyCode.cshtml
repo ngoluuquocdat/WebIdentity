@@ -55,18 +55,19 @@
             // add key press event
             $inputs.on('paste', function (event) {
                 var pastedData = event.originalEvent.clipboardData.getData('text');
-                $.each(pastedData.split(''), function (index, value) {
-                    // set value
-                    $inputs.eq(index).val(value);
-                });
+                pastedData = pastedData.trim();
+                if (pastedData.length === $inputs.length) {
+                    if (/^\d*$/.test(pastedData)) {
+                        $.each(pastedData.split(''), function (index, value) {
+                            // set value
+                            $inputs.eq(index).val(value);
+                        });
+                    }
+                }
                 lastPaste = Date.now();
             });
 
             $inputs.on('input', function (e) {
-                if (Date.now() - lastPaste < 1000) {
-                    return;
-                };
-
                 var inputValue = e.target.value;
                 if (!/^\d*$/.test(inputValue)) {
                     event.target.value = inputValue.replace(/\D/g, '');
