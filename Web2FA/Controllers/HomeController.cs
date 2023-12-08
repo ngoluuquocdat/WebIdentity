@@ -20,7 +20,7 @@ namespace Web2FA.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult OurServices()
         {
             return View();
         }
